@@ -4,7 +4,7 @@ from PIL import Image, ImageEnhance
 # import cv2
 import numpy as np
 
-# cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0)
 
 
 def image_enhancer(frame):
@@ -16,13 +16,13 @@ def image_enhancer(frame):
     return np.asarray(contrast_image)
 
 
-# while cam.isOpened():
-#     _, frame = cam.read()
-#     frame = image_enhancer(frame)
-#     cv2.imshow("frame", frame)
-#     if cv2.waitKey(1) & 0xFF == ord('q'):
-#         break
-#
-# # Release capture
-# cam.release()
-# cv2.destroyAllWindows()
+while cam.isOpened():
+     _, frame = cam.read()
+     frame = image_enhancer(frame)
+     cv2.imshow("frame", frame)
+     if cv2.waitKey(1) & 0xFF == ord('q'):
+         break
+
+ # Release capture
+cam.release()
+cv2.destroyAllWindows()
